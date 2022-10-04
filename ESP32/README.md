@@ -20,9 +20,9 @@ Se recomienda tener 4 archivos con el programa, de la siguiente forma
     - TCP_send/UDP_send(data, large), manda los datos de tamaño large.  
     - TCP_close/UDP_close, cierra el socket
 ### Empaquetamiento:
- Tendra las funciones necesarias para armar el paquete de envio, este puede ser sola una función si prefiere incluirlo en otro de los archivos. Llamara a todo lo necesario desde Sensores. Se recomienda tener:
-    - Header(protocolo), crea el header para cierto protocolo.
-    - Body(protocolo), llama a las funciones de generación de dato y arma el cuerpo del mensaje.
-    - Packet(protocolo), usando las funciones anteriores arma el paquete entero y lo deja preparado para envio.
+ Tendra las funciones necesarias para armar el paquete de envio, este puede ser sola una función si prefiere incluirlo en otro de los archivos. Llamara a todo lo necesario desde Sensores. Se recomienda tener:  
+    - Header(protocolo), crea el header para cierto protocolo.  
+    - Body(protocolo), llama a las funciones de generación de dato y arma el cuerpo del mensaje.  
+    - Packet(protocolo), usando las funciones anteriores arma el paquete entero y lo deja preparado para envio.  
 ### Sensores:
  Genera todos los números necesarios para los datos, simulando ser sensores.

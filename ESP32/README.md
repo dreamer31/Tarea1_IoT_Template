@@ -14,11 +14,11 @@ Se recomienda tener 4 archivos con el programa, de la siguiente forma
 ### Main:
  Usara a los demás para realizar el flow de envio de datos, siendo el programa main del proyecto.
 ### Conexiones:
- Definira todas las funciones para lo que tenga que ver con redes, esto se recomienda que sea:
-    - Wifi_connect(Name_SSID, PASS), función para realizar la conexión wifi, esto se realiza dentro del ejemplo.
-    - TCP_connect/UDP_connect(IPV4, PORT), realiza la conexión con un socket TCP/UDP.
-    - TCP_send/UDP_send(data, large), manda los datos de tamaño large.
-    - TCP_close/UDP_close, cierra 
+ Definira todas las funciones para lo que tenga que ver con redes, esto se recomienda que sea:  
+    - Wifi_connect(Name_SSID, PASS), función para realizar la conexión wifi, esto se realiza dentro del ejemplo.  
+    - TCP_connect/UDP_connect(IPV4, PORT), realiza la conexión con un socket TCP/UDP.  
+    - TCP_send/UDP_send(data, large), manda los datos de tamaño large.  
+    - TCP_close/UDP_close, cierra el socket
 ### Empaquetamiento:
  Tendra las funciones necesarias para armar el paquete de envio, este puede ser sola una función si prefiere incluirlo en otro de los archivos. Llamara a todo lo necesario desde Sensores. Se recomienda tener:
     - Header(protocolo), crea el header para cierto protocolo.

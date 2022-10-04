@@ -5,11 +5,11 @@ Se incluye el proyecto de ej para ambos tipos de Cliente (TCP y UDP)
 Se recomienda tener 4 archivos con el programa, de la siguiente forma
 
 **Cliente**
-|
-|---------- Main
-|---------- Conexiones
-|---------- Empaquetamiento
-|---------- Sensores
+|  
+|---------- Main  
+|---------- Conexiones  
+|---------- Empaquetamiento  
+|---------- Sensores  
 
 ### Main:
  Usara a los demás para realizar el flow de envio de datos, siendo el programa main del proyecto.

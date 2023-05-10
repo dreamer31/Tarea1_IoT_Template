@@ -103,13 +103,41 @@ char batt_sensor(){
     return n;
 }
 
-float acelerometer_kpi() {
+/*  
+    Funcion que simula el Acelerometer_kp
+*/
+
+float acc_kpi_amp_x() {
     float amp_x = (float) floatrand(0.0059, 0.12)
+    return amp_x;
+}
+
+float acc_kpi_frec_x() {
     float frec_x = (float) floatrand(0.0059, 0.12)
+    return frec_x;
+}
+    
+float acc_kpi_amp_y() {   
     float amp_y = (float) floatrand(29, 31)
+    return amp_y;
+}
+
+float acc_kpi_frec_y() {    
     float frec_y = (float) floatrand(0.0041, 0.11)
+    return frec_y;
+}
+
+float acc_kpi_amp_z() {
     float amp_z = (float) floatrand(59, 61)
+    return amp_z;
+}
+
+float acc_kpi_frec_z() {
     float frec_z = (float) floatrand(89, 91)
-    float RMS = (float) sqrt(pow(amp_x, 2) + pow(amp_y, 2) + pow(amp_z, 2));
+    return frec_z;
+}
+
+float acc_kpi_rms() {
+    float RMS = (float) sqrt(pow(acc_kpi_amp_x(), 2) + pow(acc_kpi_amp_y(), 2) + pow(acc_kpi_amp_z, 2));
     return RMS;
 }

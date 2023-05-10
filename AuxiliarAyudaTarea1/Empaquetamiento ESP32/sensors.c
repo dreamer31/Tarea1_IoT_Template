@@ -104,7 +104,7 @@ char batt_sensor(){
 }
 
 /*  
-    Funcion que simula el Acelerometer_kp
+    Funciones que simulan el Acelerometer_kp
 */
 
 float acc_kpi_amp_x() {

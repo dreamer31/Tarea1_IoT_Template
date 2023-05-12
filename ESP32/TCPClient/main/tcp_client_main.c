@@ -8,7 +8,7 @@
 #include "protocol_examples_common.h"
 #include "esp_event.h"
 
-
+//cambiar esto para decidir si se envia por tcp o udp
 extern void tcp_client(void);
 
 void app_main(void)
@@ -22,6 +22,7 @@ void app_main(void)
      * examples/protocols/README.md for more information about this function.
      */
     ESP_ERROR_CHECK(example_connect());
-
+    
+    //hacer funcion de conexion inicial y despues una funcion de ejecucion para ver cual es el que se esta ejecutando. tcp o udp y trabajar con memorias  internas
     tcp_client();
 }

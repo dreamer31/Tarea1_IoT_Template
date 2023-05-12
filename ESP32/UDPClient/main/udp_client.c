@@ -55,6 +55,7 @@ static void udp_client_task(void *pvParameters)
         dest_addr.sin_port = htons(PORT);
         addr_family = AF_INET;
         ip_protocol = IPPROTO_IP;
+//borrable
 #elif defined(CONFIG_EXAMPLE_IPV6)
         struct sockaddr_in6 dest_addr = { 0 };
         inet6_aton(HOST_IP_ADDR, &dest_addr.sin6_addr);
@@ -68,7 +69,7 @@ static void udp_client_task(void *pvParameters)
         ESP_ERROR_CHECK(get_addr_from_stdin(PORT, SOCK_DGRAM, &ip_protocol, &addr_family, &dest_addr));
 #endif
 
-        int sock = socket(addr_family, SOCK_DGRAM, ip_protocol);
+        int sock = socket(addr_family, SOCK_DGRAM, ip_protocol); 
         if (sock < 0) {
             ESP_LOGE(TAG, "Unable to create socket: errno %d", errno);
             break;
@@ -84,7 +85,7 @@ static void udp_client_task(void *pvParameters)
 
         while (1) {
 
-            int err = sendto(sock, payload, strlen(payload), 0, (struct sockaddr *)&dest_addr, sizeof(dest_addr));
+            int err = sendto(sock, payload, strlen(payload), 0, (struct sockaddr *)&dest_addr, sizeof(dest_addr)); //setea direccion de destino
             if (err < 0) {
                 ESP_LOGE(TAG, "Error occurred during sending: errno %d", errno);
                 break;
@@ -105,16 +106,16 @@ static void udp_client_task(void *pvParameters)
                 rx_buffer[len] = 0; // Null-terminate whatever we received and treat like a string
                 ESP_LOGI(TAG, "Received %d bytes from %s:", len, host_ip);
                 ESP_LOGI(TAG, "%s", rx_buffer);
-                if (strncmp(rx_buffer, "OK: ", 4) == 0) {
+                if (strncmp(rx_buffer, "OK: ", 4) == 0) { //OK PARA SEGUIR ENVIANDO COSAS
                     ESP_LOGI(TAG, "Received expected message, reconnecting");
                     break;
                 }
             }
 
-            vTaskDelay(2000 / portTICK_PERIOD_MS);
+            vTaskDelay(2000 / portTICK_PERIOD_MS); // ayuda para problemas de conexión. Limpiar variables en el puerto en el que se recibe con un print
         }
 
-        if (sock != -1) {
+        if (sock != -1) { // se cierra el socket
             ESP_LOGE(TAG, "Shutting down socket and restarting...");
             shutdown(sock, 0);
             close(sock);
